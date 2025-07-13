@@ -286,7 +286,7 @@ lake clean
 
 - **Documentation**: Check the [docs](docs/) directory
 - **Community**: Join our [Discord server](https://discord.gg/UQYSkach)
-- **Issues**: Report bugs on [GitHub](https://github.com/your-username/theorem-ai/issues)
+- **Issues**: Report bugs on [GitHub](https://github.com/Akshay404error/therom-ai/issues)
 - **Contact**: Email us at akshay2005air@gmail.com
 
 ---

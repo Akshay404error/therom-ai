@@ -187,7 +187,7 @@ window.openDocumentation = function(docType) {
 window.downloadProject = function() {
     // Create a zip file of the project
     const downloadLink = document.createElement('a');
-    downloadLink.href = 'https://github.com/your-username/theorem-ai/archive/refs/heads/main.zip';
+    downloadLink.href = 'https://github.com/Akshay404error/therom-ai/archive/refs/heads/main.zip';
     downloadLink.download = 'theorem-ai.zip';
     downloadLink.target = '_blank';
     document.body.appendChild(downloadLink);

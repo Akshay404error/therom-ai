@@ -1,0 +1,47 @@
+# Code Owners
+#
+# Documents responsible people per component.
+# Listed persons will automatically be asked by GitHub to review a PR touching these paths.
+# If multiple names are listed, a review by any of them is considered sufficient by default.
+
+/.github/ @kim-em
+/RELEASES.md @kim-em
+/src/kernel/ @leodemoura
+/src/library/compiler/ @zwarich
+/src/lake/ @tydeu
+/src/theorem_ai/Compiler/ @leodemoura @zwarich
+/src/theorem_ai/Data/Lsp/ @mhuisi
+/src/theorem_ai/Elab/Deriving/ @kim-em
+/src/theorem_ai/Elab/Tactic/ @kim-em
+/src/theorem_ai/Language/ @Kha
+/src/theorem_ai/Meta/Tactic/ @leodemoura
+/src/theorem_ai/PrettyPrinter/ @kmill
+/src/theorem_ai/Server/ @mhuisi
+/src/theorem_ai/Widget/ @Vtec234
+/src/Init/Data/ @kim-em
+/src/Init/Data/Array/Lemmas.theorem_ai @digama0
+/src/Init/Data/List/Lemmas.theorem_ai @digama0
+/src/Init/Data/List/BasicAux.theorem_ai @digama0
+/src/Init/Data/Array/Subarray.theorem_ai @david-christiansen
+/src/theorem_ai/Elab/Tactic/RCases.theorem_ai @digama0
+/src/Init/RCases.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/Ext.theorem_ai @digama0
+/src/Init/Ext.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/Simpa.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/NormCast.theorem_ai @digama0
+/src/theorem_ai/Meta/Tactic/NormCast.theorem_ai @digama0
+/src/theorem_ai/Meta/Tactic/TryThis.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/SimpTrace.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/NoMatch.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/ShowTerm.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/Repeat.theorem_ai @digama0
+/src/theorem_ai/Meta/Tactic/Repeat.theorem_ai @digama0
+/src/theorem_ai/Meta/CoeAttr.theorem_ai @digama0
+/src/theorem_ai/Elab/GuardMsgs.theorem_ai @digama0
+/src/theorem_ai/Elab/Tactic/Guard.theorem_ai @digama0
+/src/Init/Guard.theorem_ai @digama0
+/src/theorem_ai/Server/CodeActions/ @digama0
+/src/Std/ @TwoFX
+/src/Std/Tactic/BVDecide/ @hargoniX
+/src/theorem_ai/Elab/Tactic/BVDecide/ @hargoniX
+/src/Std/Sat/ @hargoniX
