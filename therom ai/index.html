@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theorem AI - Next Generation Theorem Prover</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>Theorem AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#docs">Documentation</a></li>
+                <li><a href="#" class="cta-button" onclick="downloadProject()">Download</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Theorem AI</span>
+                    <br>Next Generation Theorem Prover
+                </h1>
+                <p class="hero-subtitle">
+                    Advanced mathematical reasoning, functional programming, and interactive proof assistant 
+                    powered by cutting-edge AI technology.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="runDemo()">
+                        <i class="fas fa-play"></i>
+                        Try Demo
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('docs')">
+                        <i class="fas fa-book"></i>
+                        Learn More
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">290+</span>
+                        <span class="stat-label">C++ Files</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5,943</span>
+                        <span class="stat-label">Source Files</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Type Safe</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-editor">
+                    <div class="editor-header">
+                        <div class="editor-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="editor-title">factorial.theorem_ai</span>
+                    </div>
+                    <div class="editor-content">
+                        <pre><code class="language-theorem-ai">-- Theorem AI Example
+def factorial (n : Nat) : Nat :=
+  match n with
+  | 0 => 1
+  | n + 1 => (n + 1) * factorial n
+
+theorem factorial_positive (n : Nat) : 
+  factorial n > 0 := by
+  induction n with
+  | zero => simp [factorial]
+  | succ n ih => 
+    simp [factorial]
+    apply Nat.mul_pos
+    · exact Nat.succ_pos n
+    · exact ih
+
+#eval factorial 5  -- 120</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Type Safety</h3>
+                    <p>Advanced dependent type system ensures mathematical correctness and eliminates runtime errors.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Theorem Proving</h3>
+                    <p>Interactive proof assistant with powerful tactics and automated reasoning capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Functional Programming</h3>
+                    <p>Pure functional programming language with pattern matching and higher-order functions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>High Performance</h3>
+                    <p>Optimized compilation with mimalloc memory management and parallel execution.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Extensible</h3>
+                    <p>Rich ecosystem with package management, macros, and custom syntax extensions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>IDE Support</h3>
+                    <p>Full IDE integration with VS Code, Emacs, and Vim support via Language Server Protocol.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">Interactive Demo</h2>
+            <div class="demo-container">
+                <div class="demo-editor">
+                    <div class="editor-header">
+                        <div class="editor-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="editor-title">Interactive Theorem AI</span>
+                    </div>
+                    <div class="editor-content">
+                        <textarea id="code-input" placeholder="-- Enter your Theorem AI code here
+-- Example:
+def hello : String := \"Hello, Theorem AI!\"
+#eval hello">-- Welcome to Theorem AI Interactive Demo!
+
+-- Define a simple function
+def greet (name : String) : String := 
+  s!\"Hello, {name}!\"
+
+-- Test the function
+#eval greet \"World\"
+
+-- Define a mathematical function
+def fibonacci (n : Nat) : Nat :=
+  match n with
+  | 0 => 0
+  | 1 => 1
+  | n + 2 => fibonacci n + fibonacci (n + 1)
+
+-- Calculate fibonacci numbers
+#eval fibonacci 10</textarea>
+                    </div>
+                    <div class="editor-footer">
+                        <button class="btn btn-primary" onclick="executeCode()">
+                            <i class="fas fa-play"></i>
+                            Execute
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearOutput()">
+                            <i class="fas fa-trash"></i>
+                            Clear
+                        </button>
+                    </div>
+                </div>
+                <div class="demo-output">
+                    <div class="output-header">
+                        <span>Output</span>
+                        <button class="btn btn-small" onclick="clearOutput()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="output-content" class="output-content">
+                        <div class="output-message">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Enter code and click Execute to see the results!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="docs">
+        <div class="container">
+            <h2 class="section-title">Documentation & Resources</h2>
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Quick Start</h3>
+                    <p>Get started with Theorem AI in minutes with our comprehensive setup guide.</p>
+                    <a href="docs/quick-start.md" class="doc-link" onclick="openDocumentation('quick-start')">View Guide <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Tutorial</h3>
+                    <p>Learn theorem proving and functional programming with interactive examples.</p>
+                    <a href="docs/tutorial.md" class="doc-link" onclick="openDocumentation('tutorial')">Start Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Reference</h3>
+                    <p>Complete language reference with syntax, semantics, and standard library.</p>
+                    <a href="docs/reference.md" class="doc-link" onclick="openDocumentation('reference')">Browse Docs <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Join our community of researchers, developers, and mathematicians.</p>
+                    <a href="https://discord.gg/UQYSkach" class="doc-link" target="_blank">Join Discord <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>Theorem AI</span>
+                    </div>
+                    <p>Advanced theorem prover and functional programming language for mathematical reasoning and software verification.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://github.com/your-username/theorem-ai" target="_blank">GitHub</a></li>
+                        <li><a href="https://discord.gg/UQYSkach" target="_blank">Discord</a></li>
+                        <li><a href="https://discord.gg/UQYSkach" target="_blank">Forum</a></li>
+                        <li><a href="https://discord.gg/UQYSkach" target="_blank">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="https://github.com/your-username/theorem-ai/issues" target="_blank">Issues</a></li>
+                        <li><a href="https://github.com/your-username/theorem-ai/discussions" target="_blank">FAQ</a></li>
+                        <li><a href="mailto:akshay2005air@gmail.com">Contact</a></li>
+                        <li><a href="https://github.com/your-username/theorem-ai" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Theorem AI. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">License</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,79 @@
+# This file allows lake to build theorem_ai, Init, and Lake as theorem_ai libraries.
+#
+# This is the file used when working with the stage0 compiler on the libraries
+#
+# It is not yet possible to build the compiler and other tooling executables with Lake; to build
+# them, please consult the instructions in doc/dev/index.md.
+
+name = "theorem_ai4"
+bootstrap = true
+
+defaultTargets = ["Init", "Std", "theorem_ai", "Lake", "LakeMain", "Leanc"]
+
+# The root of all the compiler output directories
+buildDir = "${CMAKE_BINARY_DIR}"
+
+# The directory of theorem_ai source files (i.e., `src`)
+srcDir = "${LEAN_SOURCE_DIR}"
+
+# Destination C files and other intermediate representations
+irDir = "lib/temp"
+
+# Destination for olean files
+leanLibDir = "lib/theorem_ai"
+
+# Destination for static libraries
+nativeLibDir = "lib/theorem_ai"
+
+leanOptions = { experimental.module = true }
+
+# Additional options derived from the CMake configuration
+# For example, CI will set `-DwarningAsError=true` through this
+moreLeanArgs = [${LEAN_EXTRA_OPTS_TOML}]
+
+[[lean_lib]]
+name = "Init"
+libName = "${LAKE_LIB_PREFIX}Init"
+defaultFacets = ["static", "static.export"]
+
+[[lean_lib]]
+name = "Std"
+libName = "${LAKE_LIB_PREFIX}Std"
+defaultFacets = ["static", "static.export"]
+
+[[lean_lib]]
+name = "theorem_ai"
+libName = "${LAKE_LIB_PREFIX}theorem_ai"
+defaultFacets = ["static", "static.export"]
+globs = [
+  # Library root
+  "theorem_ai",
+  # Deliberate orphan file so `import TheoremAI` does not induce an LLVM dependency
+  "TheoremAI.Compiler.IR.EmitLLVM",
+  # New compiler orphan file used in tests
+  "TheoremAI.Compiler.LCNF.Probing",
+]
+
+[[lean_lib]]
+name = "Lake"
+srcDir = "lake"
+globs = [
+  # Lake API imported by configuration files
+  "Lake",
+  # API only imported by `LakeMain` and the `lake` CLI
+  "Lake.CLI",
+]
+libName = "${LAKE_LIB_PREFIX}Lake"
+defaultFacets = ["static", "static.export"]
+
+[[lean_lib]]
+name = "LakeMain"
+srcDir = "lake"
+libName = "${LAKE_LIB_PREFIX}LakeMain"
+defaultFacets = ["static.export"]
+
+[[lean_lib]]
+name = "Leanc"
+srcDir = "${CMAKE_BINARY_DIR}/leanc"
+libName = "${LAKE_LIB_PREFIX}Leanc"
+defaultFacets = ["static"]
