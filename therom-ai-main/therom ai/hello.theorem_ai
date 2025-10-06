@@ -1,0 +1,47 @@
+-- Hello World in Theorem AI
+-- This is a simple example to get started with Theorem AI
+
+-- Define a simple greeting function
+def hello : String := "Hello, Theorem AI!"
+
+-- Define a mathematical function
+def factorial (n : Nat) : Nat :=
+  match n with
+  | 0 => 1
+  | n + 1 => (n + 1) * factorial n
+
+-- Define a list of numbers
+def numbers : List Nat := [1, 2, 3, 4, 5]
+
+-- Define a function to sum a list
+def sumList (xs : List Nat) : Nat :=
+  match xs with
+  | [] => 0
+  | x :: xs => x + sumList xs
+
+-- Evaluate and display results
+#eval hello
+#eval factorial 5
+#eval sumList numbers
+
+-- Define a simple theorem
+theorem factorial_positive (n : Nat) : factorial n > 0 := by
+  induction n with
+  | zero => simp [factorial]
+  | succ n ih => 
+    simp [factorial]
+    apply Nat.mul_pos
+    · exact Nat.succ_pos n
+    · exact ih
+
+-- Example of pattern matching
+def describeNumber (n : Nat) : String :=
+  match n with
+  | 0 => "Zero"
+  | 1 => "One"
+  | 2 => "Two"
+  | _ => "Many"
+
+#eval describeNumber 0
+#eval describeNumber 1
+#eval describeNumber 5 
